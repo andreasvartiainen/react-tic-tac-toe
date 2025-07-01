@@ -25,3 +25,10 @@
 
 	font-size: 400%;
 }
+
+.gameGrid button.square {
+}
+
+.gameGrid button.square.active {
+	background-color: green;
+}

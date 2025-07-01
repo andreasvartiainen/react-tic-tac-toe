@@ -2,14 +2,13 @@ import { useState } from "react";
 import Board from "./board";
 
 export default function Game() {
-	// const [squares, setSquares] = useState<string[]>(Array(9).fill(""));
 	const [history, setHistory] = useState<string[][]>([Array(9).fill("")])
 	const [currentMove, setCurrentMove] = useState<number>(0);
 	const [isSort, setIsSort] = useState<boolean>(false);
 	const currentSquares = history[currentMove];
 	const xIsNext = currentMove % 2 === 0;
 
-	const handlePlay = (nextSquares: string[]) => {
+	const handlePlay = (nextSquares: string[], index: number) => {
 		const nextHistory = [...history.slice(0, currentMove +1), nextSquares];
 		setHistory(nextHistory);
 		setCurrentMove(nextHistory.length - 1);
@@ -52,7 +51,7 @@ export default function Game() {
 		<>
 		<div className="game">
 			<div className="game-board">
-				<Board xIsNext={xIsNext} squares={currentSquares} onPlay={(s) => handlePlay(s)}/>
+				<Board xIsNext={xIsNext} squares={currentSquares} isGameOver={currentMove == 9} onPlay={(s, index) => handlePlay(s, index)}/>
 			<div className="game-info">
 				<button onClick={toggleSort}>Toggle Sort</button>
 				<ol>{moves}</ol>
