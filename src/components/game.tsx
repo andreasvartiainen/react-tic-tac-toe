@@ -8,7 +8,7 @@ export default function Game() {
 	const currentSquares = history[currentMove];
 	const xIsNext = currentMove % 2 === 0;
 
-	const handlePlay = (nextSquares: string[], index: number) => {
+	const handlePlay = (nextSquares: string[]) => {
 		const nextHistory = [...history.slice(0, currentMove +1), nextSquares];
 		setHistory(nextHistory);
 		setCurrentMove(nextHistory.length - 1);
@@ -32,7 +32,7 @@ export default function Game() {
 			)
 		}
 		if (move > 0) {
-			description = 'Go to move #' + move;
+			description = `Go to move #${move}`;
 		} else {
 			description = 'Go to game start';
 		}
@@ -51,7 +51,7 @@ export default function Game() {
 		<>
 		<div className="game">
 			<div className="game-board">
-				<Board xIsNext={xIsNext} squares={currentSquares} isGameOver={currentMove == 9} onPlay={(s, index) => handlePlay(s, index)}/>
+				<Board xIsNext={xIsNext} squares={currentSquares} isGameOver={currentMove == 9} onPlay={(s) => handlePlay(s)}/>
 			<div className="game-info">
 				<button onClick={toggleSort}>Toggle Sort</button>
 				<ol>{moves}</ol>

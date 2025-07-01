@@ -4,7 +4,7 @@ interface Props {
 	squares: string[];
 	xIsNext: boolean;
 	isGameOver: boolean;
-	onPlay: (squares: string[], index: number) => void;
+	onPlay: (squares: string[]) => void;
 }
 
 interface Winner {
@@ -25,7 +25,7 @@ export default function Board({squares, xIsNext, isGameOver, onPlay}:Props) {
 		const nextSquares = squares.slice();
 		nextSquares[index] = symbol;
 
-		onPlay(nextSquares, index);
+		onPlay(nextSquares);
 	};
 
 	const items = squares.map((square, index) => {
