@@ -2,4 +2,4 @@
 
 based on the tutorial at [ react tutorial ]( https://react.dev/learn/tutorial-tic-tac-toe )
 
-![screenshot](/resources/screenshot.png)
+![screenshot](/resources/screenshot_finished.png)
