@@ -1,0 +1,27 @@
+:root {
+	--grid-size: 400px;
+}
+
+.status {
+	text-align: center;
+	color: white;
+}
+
+.gameGrid{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, calc(var(--grid-size)/3));
+	grid-template-rows: repeat(auto-fill, calc(var(--grid-size)/3));
+
+	width: var(--grid-size);
+	height: var(--grid-size);
+
+	background: black;
+}
+
+.gameGrid button {
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid white;
+	color: white;
+
+	font-size: 400%;
+}
